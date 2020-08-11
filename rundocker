@@ -1,0 +1,11 @@
+#!/bin/bash
+set -x
+docker rmi -f av-app-multistage-image
+docker build -t av-app-multistage-image .
+
+docker rm -f av-app-multistage-container
+docker run --name av-app-multistage-container -d -p 8888:8081 av-app-multistage-image
+
+sleep 10;
+
+curl http://localhost:8888  |grep AstonVillaApp
