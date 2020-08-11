@@ -111,4 +111,8 @@ node (label: 'master') {
       sh "docker run -d -p 80:80 -v $WORKSPACE/hello-world-node/dist/hello-world-node:/usr/share/nginx/html/ --name ${containerName} nginx"
     }
   }
+  stage('Verification'){
+    curl localhost | grep HelloWorldNode
+  }
+
 }
