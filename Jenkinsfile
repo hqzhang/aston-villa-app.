@@ -56,7 +56,7 @@ pipeline {
                    }
                    else {
                        echo "TEST ERROR!"
-                       exit 1;
+                       sh 'exit 1 ';
                    }
 
 
